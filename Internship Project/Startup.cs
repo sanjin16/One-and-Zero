@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Internship_Project
+namespace NormativeCalculator
 {
     public class Startup
     {
@@ -30,7 +30,7 @@ namespace Internship_Project
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Internship_Project", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "NormativeCalculator", Version = "v1" });
             });
         }
 
@@ -41,7 +41,7 @@ namespace Internship_Project
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Internship_Project v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NormativeCalculator v1"));
             }
 
             app.UseHttpsRedirection();

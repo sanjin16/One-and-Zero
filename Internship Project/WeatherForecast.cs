@@ -1,6 +1,6 @@
 using System;
 
-namespace Internship_Project
+namespace NormativeCalculator
 {
     public class WeatherForecast
     {
