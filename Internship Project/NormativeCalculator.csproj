@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NormativeCalculator.Database\NormativeCalculator.Database.csproj" />
+    <ProjectReference Include="..\NormativeCalculator.Service\NormativeCalculator.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>

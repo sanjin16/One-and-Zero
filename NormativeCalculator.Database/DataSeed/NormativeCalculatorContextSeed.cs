@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NormativeCalculator.Database.DataSeed
 {
-    public class NormativeCalculatorDbContext
+    public class NormativeCalculatorDbContext1
     {
 
     }
