@@ -17,4 +17,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NormativeCalculator.Common\NormativeCalculator.Common.csproj" />
+    <ProjectReference Include="..\NormativeCalculator.Database\NormativeCalculator.Database.csproj" />
+  </ItemGroup>
+
 </Project>
