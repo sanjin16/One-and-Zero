@@ -9,10 +9,14 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using NormativeCalculator.Database.EF;
+using NormativeCalculator.Service.Interface;
+using NormativeCalculator.Service.Service;
+using NormativeCalculator.Service.IngredientService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using NormativeCalculator.Database.Authentication;
 
 namespace NormativeCalculator
 {
@@ -34,8 +38,14 @@ namespace NormativeCalculator
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "NormativeCalculator", Version = "v1" });
             });
+            services.AddAutoMapper(typeof(Startup));
+            services.AddScoped<IRecipeService, RecipeService>();
+            services.AddScoped<IRecipeCategoryService, RecipeCategoryService>();
             services.AddDbContext<NormativeCalculatorDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddAutoMapper(typeof(Startup));
+            services.AddScoped<IIngredientService, IngredientService>();
+            services.AddScoped<IAuthRepository, AuthRepository>(); ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
