@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using NormativeCalculator.Database.Entities;
 using NormativeCalculator.DTOs.IngredientDto;
 using NormativeCalculator.Service.IngredientService;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Internship_Project.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class IngredientController : ControllerBase
