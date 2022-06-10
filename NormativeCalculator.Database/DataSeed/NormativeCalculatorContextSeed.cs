@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace NormativeCalculator.Database.DataSeed
 {
-    public static class NormativeCalculatorContextSeed
+
     {
         public static void DataSeed(this ModelBuilder modelBuilder)
         {
