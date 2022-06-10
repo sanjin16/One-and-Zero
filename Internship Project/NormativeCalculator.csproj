@@ -18,10 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NormativeCalculator.Database\NormativeCalculator.Database.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Mapping\" />
+    <ProjectReference Include="..\NormativeCalculator.Service\NormativeCalculator.Service.csproj" />
   </ItemGroup>
 
 </Project>
