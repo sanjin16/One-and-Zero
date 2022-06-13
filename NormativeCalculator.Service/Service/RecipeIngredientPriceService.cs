@@ -22,6 +22,7 @@ namespace NormativeCalculator.Service.Service
             _mapper = mapper;
         }
 
+
         public decimal IngredientPrice(RecipeIngredients request)
         {
             decimal totalIngredinetPrice = 0;
@@ -37,7 +38,22 @@ namespace NormativeCalculator.Service.Service
             return Math.Round(totalIngredinetPrice, 2);
         }
 
-        private bool IsMeasuerTypeGrMl(MeasureType type)
+        public decimal RecipePrice(Recipe request)
+        {
+            decimal totalRecipePrice = 0;
+            var recipe = _context.Recipe.FirstOrDefault(i=> i.Id == request.Id);
+            var recipeIngredients = _context.RecipeIngredients.Where(r => r.RecipeId == recipe.Id).ToList();
+            if(request.Id == recipe.Id)
+            {
+                for(int i=0; i<recipeIngredients.Count; i++)
+                {
+                    totalRecipePrice = totalRecipePrice + IngredientPrice(recipeIngredients[i]);
+                }
+            }
+            return Math.Round(totalRecipePrice, 2);
+
+        }
+             private bool IsMeasuerTypeGrMl(MeasureType type)
         {
             if (type == MeasureType.gr || type == MeasureType.ml)
                 return true;
@@ -50,6 +66,7 @@ namespace NormativeCalculator.Service.Service
                 return quantity / 1000;
 
             return quantity;
-        }
+         }
+
     }
 }

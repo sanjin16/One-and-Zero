@@ -36,6 +36,7 @@ namespace NormativeCalculator.Service.Service
                             Id = s.Id,
                             Name = s.Name,
                             Description = s.Description,
+                            TotalCost = _recipeIngredientPriceService.RecipePrice(s)
                         }).ToListAsync();
 
             var count = _context.Recipe.Count();
@@ -104,7 +105,8 @@ namespace NormativeCalculator.Service.Service
                     Quantity = i.Quantity,
                     RecipeId = i.RecipeId,
                     Cost = _recipeIngredientPriceService.IngredientPrice(i)
-                }).ToList()
+                }).ToList(),
+                TotalCost = _recipeIngredientPriceService.RecipePrice(r)
 
 
             }).FirstOrDefaultAsync(i => i.Id == id);

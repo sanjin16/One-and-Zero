@@ -10,5 +10,6 @@ namespace NormativeCalculator.Service.Interface
     public interface IRecipeIngredientPriceService
     {
         public decimal IngredientPrice(RecipeIngredients request);
+        public decimal RecipePrice(Recipe request);
     }
 }
