@@ -17,6 +17,7 @@ namespace NormativeCalculator.Database.Entities
         [ForeignKey("IngredientId")]
         public Ingredient Ingredient { get; set; }
         public int IngredientId { get; set; }
+
         public int Quantity { get; set; }
         public MeasureType measureType { get; set; } 
     }

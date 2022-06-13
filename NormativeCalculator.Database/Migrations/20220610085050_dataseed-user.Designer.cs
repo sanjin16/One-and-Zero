@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NormativeCalculator.Database.EF;
 
 namespace NormativeCalculator.Database.Migrations
 {
     [DbContext(typeof(NormativeCalculatorDbContext))]
-    partial class NormativeCalculatorDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220610085050_dataseed-user")]
+    partial class dataseeduser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -177,7 +179,7 @@ namespace NormativeCalculator.Database.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2022, 6, 10, 11, 32, 41, 942, DateTimeKind.Local).AddTicks(8904),
+                            DateCreated = new DateTime(2022, 6, 10, 10, 50, 49, 982, DateTimeKind.Local).AddTicks(2066),
                             Name = "Pancakes"
                         },
                         new
@@ -241,8 +243,8 @@ namespace NormativeCalculator.Database.Migrations
                             Id = 1,
                             FirstName = "Sanjin",
                             LastName = "Sabanovic",
-                            PasswordHash = new byte[] { 41, 3, 182, 225, 220, 27, 73, 62, 106, 133, 92, 26, 213, 179, 208, 127, 21, 160, 102, 87, 55, 166, 72, 54, 13, 59, 114, 178, 231, 170, 23, 174, 202, 30, 66, 236, 190, 158, 141, 8, 122, 94, 120, 27, 165, 179, 231, 219, 249, 17, 171, 219, 205, 52, 40, 98, 206, 248, 152, 47, 53, 200, 248, 68 },
-                            PasswordSalt = new byte[] { 131, 236, 202, 63, 242, 43, 121, 48, 96, 250, 199, 39, 122, 219, 112, 47, 153, 213, 221, 167, 224, 228, 93, 89, 167, 64, 103, 229, 111, 24, 42, 143, 192, 120, 184, 133, 230, 242, 150, 125, 200, 244, 4, 250, 120, 105, 106, 17, 45, 68, 25, 191, 103, 203, 156, 138, 31, 176, 85, 177, 45, 177, 60, 115, 117, 157, 116, 6, 252, 39, 213, 90, 171, 155, 16, 17, 129, 245, 60, 191, 254, 213, 56, 105, 130, 137, 190, 64, 19, 118, 138, 230, 211, 137, 126, 67, 140, 91, 129, 174, 49, 29, 16, 91, 82, 35, 173, 221, 56, 208, 0, 93, 28, 225, 125, 116, 44, 105, 113, 82, 44, 10, 13, 157, 214, 38, 96, 180 },
+                            PasswordHash = new byte[] { 23, 189, 214, 152, 200, 76, 171, 234, 34, 2, 146, 165, 171, 0, 28, 68, 63, 20, 254, 159, 80, 5, 235, 185, 218, 141, 63, 39, 168, 85, 136, 211, 48, 224, 50, 74, 104, 50, 26, 250, 231, 207, 137, 251, 205, 246, 38, 131, 63, 29, 106, 72, 53, 35, 194, 68, 255, 191, 56, 44, 186, 36, 55, 217 },
+                            PasswordSalt = new byte[] { 236, 170, 244, 24, 178, 186, 116, 8, 119, 75, 215, 226, 89, 39, 82, 82, 141, 129, 90, 87, 10, 97, 74, 104, 27, 23, 118, 32, 45, 229, 246, 181, 91, 199, 242, 131, 30, 44, 127, 245, 99, 119, 166, 253, 91, 105, 92, 54, 226, 110, 27, 44, 130, 79, 154, 8, 72, 217, 161, 7, 72, 245, 199, 185, 186, 216, 83, 112, 206, 218, 22, 75, 171, 231, 8, 205, 153, 160, 14, 32, 239, 250, 162, 253, 116, 228, 159, 19, 194, 88, 171, 168, 216, 87, 193, 112, 251, 238, 75, 77, 111, 249, 130, 98, 208, 60, 220, 211, 86, 42, 164, 234, 73, 204, 29, 183, 79, 234, 243, 166, 225, 169, 240, 139, 241, 3, 248, 213 },
                             Username = "Sanjin"
                         });
                 });

@@ -40,6 +40,7 @@ namespace NormativeCalculator
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<IRecipeService, RecipeService>();
             services.AddScoped<IRecipeCategoryService, RecipeCategoryService>();
+            services.AddScoped<IRecipeIngredientPriceService, RecipeIngredientPriceService>();
             services.AddDbContext<NormativeCalculatorDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddAutoMapper(typeof(Startup));
