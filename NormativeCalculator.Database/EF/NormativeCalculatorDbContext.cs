@@ -17,7 +17,7 @@ namespace NormativeCalculator.Database.EF
 
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Recipe> Recipe { get; set; }
-        public DbSet<RecipeCategories> RecipeCategories { get; set; }
+        public DbSet<Category> Category { get; set; }
         public DbSet<RecipeIngredients> RecipeIngredients { get; set; }
         public DbSet<User> Users { get; set; }
     

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NormativeCalculator.Database.EF;
 using Microsoft.EntityFrameworkCore;
+using NormativeCalculator.DTOs.Response;
 
 namespace NormativeCalculator.Service.IngredientService
 {
@@ -22,6 +23,7 @@ namespace NormativeCalculator.Service.IngredientService
             _mapper = mapper;
             _context = context;
         }
+
         public async Task<ServiceResponse<List<GetIngredientDto>>> AddIngredient(AddIngredientDto newIngredient)
         {
             var ServiceResponse = new ServiceResponse<List<GetIngredientDto>>();
@@ -93,7 +95,7 @@ namespace NormativeCalculator.Service.IngredientService
                     ingredient.Name = updatedIngredient.Name;
                     ingredient.Price = updatedIngredient.Price;
                     ingredient.Quantity = updatedIngredient.Quantity;
-                    ingredient.measureType = updatedIngredient.measureType;
+                    ingredient.MeasureType = updatedIngredient.measureType;
 
                     await _context.SaveChangesAsync();
 

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using NormativeCalculator.Database.Entities;
+using NormativeCalculator.DTOs.IngredientDto;
 using NormativeCalculator.DTOs.Request;
 
 namespace Internship_Project.Mapping
@@ -9,10 +10,13 @@ namespace Internship_Project.Mapping
         public AutoMapperProfile() {
             CreateMap<Recipe, AddRecipeRequestDto>().ReverseMap();
             CreateMap<Recipe, UpdateRecipeRequestDto>().ReverseMap();
-            CreateMap<RecipeCategories, RecipeCategoriesGetDto>();
+            CreateMap<Category, GetCategoryDto>();
             CreateMap<Recipe, RecipeDto>();
             CreateMap<GetRecipesDto, RecipeDto>();
-            CreateMap<RecipeCategories, RecipeCategoryInsertDto>().ReverseMap();
+            CreateMap<Category, AddCategoryRequestDto>().ReverseMap();
+
+            CreateMap<AddIngredientDto, Ingredient>();
+            CreateMap<Ingredient, GetIngredientDto>();
         }
     }
 }

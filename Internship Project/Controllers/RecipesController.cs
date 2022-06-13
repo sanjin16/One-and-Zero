@@ -17,11 +17,13 @@ namespace Internship_Project.Controllers
         {
             _recipeService = recipeService;
         }
+
         [HttpGet]
-        public async Task<IActionResult> GetRecipesAsync([FromQuery]RecipeCategoryRequestDto request)
+        public async Task<IActionResult> GetRecipesAsync([FromQuery]RecipeSearchRequestDto request)
         {
             return Ok( await _recipeService.GetRecipeAsync(request));
         }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetRecipeByIdAsync(int id)
         {
@@ -29,9 +31,9 @@ namespace Internship_Project.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task DeleteRecipeById(int id)
+        public async Task<IActionResult> DeleteRecipeById(int id)
         {
-             await _recipeService.DeleteRecipeAsync(id);
+             return Ok(await _recipeService.DeleteRecipeAsync(id));
         }
 
         [HttpPost]
@@ -39,10 +41,11 @@ namespace Internship_Project.Controllers
         {
             return Ok(await _recipeService.InsertRecipeAsync(request));
         }
-        [HttpPut]
-        public async Task  UpdateRecipeAsync(UpdateRecipeRequestDto recipe)
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateRecipeAsync(int id, UpdateRecipeRequestDto request)
         {
-            await _recipeService.UpdateRecipeAsync(recipe);
+           return Ok(await _recipeService.UpdateRecipeAsync(id, request));
         }
     }
 }
