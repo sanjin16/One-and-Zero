@@ -23,7 +23,7 @@ namespace NormativeCalculator.Service.Service
         }
         public bool IsMeasuerTypeKgL(MeasureType type)
         {
-            if (type.Equals(MeasureType.kg) || type.Equals(MeasureType.l))
+            if (type.Equals(MeasureType.gr) || type.Equals(MeasureType.ml))
                 return true;
 
             return false;
@@ -31,7 +31,7 @@ namespace NormativeCalculator.Service.Service
         public decimal ConvertQuantity(decimal quantity, MeasureType type)
         {
             if (IsMeasuerTypeKgL(type))
-                return quantity * 1000;
+                return quantity / 1000;
 
             return quantity;
         }
@@ -47,6 +47,21 @@ namespace NormativeCalculator.Service.Service
             totalIngredinetPrice = ConvertQuantity(request.Quantity, request.measureType) * ingredinet.Price;
 
             return Math.Round(totalIngredinetPrice, 2);
+        }
+
+        public decimal RecipePrice(Recipe request)
+        {
+            decimal totalRecipePrice = 0;
+            var recipe = _context.Recipe.FirstOrDefault(i=> i.Id == request.Id);
+            var recipeIngredients = _context.RecipeIngredients.Where(r => r.RecipeId == recipe.Id).ToList();
+            if(request.Id == recipe.Id)
+            {
+                for(int i=0; i<recipeIngredients.Count; i++)
+                {
+                    totalRecipePrice = totalRecipePrice + IngredientPrice(recipeIngredients[i]);
+                }
+            }
+            return Math.Round(totalRecipePrice, 2);
         }
     }
 }
