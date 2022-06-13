@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NormativeCalculator.Database.Entities
+namespace NormativeCalculator.DTOs.Response
 {
     public class ServiceResponse<T>
     {

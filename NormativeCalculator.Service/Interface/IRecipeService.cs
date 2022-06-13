@@ -12,10 +12,9 @@ namespace NormativeCalculator.Service.Interface
     public interface IRecipeService
     {
         Task<GetRecipesDto> GetRecipeByIdAsync(int id);
-        Task<PaginationModel<List<RecipeDto>>> GetRecipeAsync(RecipeCategoryRequestDto request);
-        Task DeleteRecipeAsync(int Id);
+        Task<PaginationModel<List<RecipeDto>>> GetRecipeAsync(RecipeSearchRequestDto request);
+        Task<RecipeDto> DeleteRecipeAsync(int id);
         Task<RecipeDto> InsertRecipeAsync(AddRecipeRequestDto request);
-        Task UpdateRecipeAsync(UpdateRecipeRequestDto request);
-
+        Task<RecipeDto> UpdateRecipeAsync(int id, UpdateRecipeRequestDto request);
     }
 }

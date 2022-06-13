@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace NormativeCalculator.DTOs.Request
 {
-    public class RecipeCategoryRequestDto
+    public class AddCategoryRequestDto
     {
-        public int CategoryId { get; set; } 
-        public string SearchText { get; set; }
+        public string Name { get; set; }
     }
 }

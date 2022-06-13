@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NormativeCalculator.Database.Entities
 {
-    public class RecipeCategories
+    public class Category
     {
         [Key]
         public int Id { get; set; }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using NormativeCalculator.Database.Entities;
 using NormativeCalculator.DTOs.IngredientDto;
+using NormativeCalculator.DTOs.Response;
 using NormativeCalculator.Service.IngredientService;
 using System.Collections.Generic;
 using System.Threading.Tasks;

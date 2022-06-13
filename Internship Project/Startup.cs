@@ -37,6 +37,8 @@ namespace NormativeCalculator
         {
 
             services.AddControllers();
+            services.AddAutoMapper(typeof(Startup));
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "NormativeCalculator", Version = "v1" });
@@ -49,12 +51,15 @@ namespace NormativeCalculator
                 });
                 c.OperationFilter<SecurityRequirementsOperationFilter>();
             });
-            services.AddAutoMapper(typeof(Startup));
+
             services.AddScoped<IRecipeService, RecipeService>();
-            services.AddScoped<IRecipeCategoryService, RecipeCategoryService>();
+            services.AddScoped<IIngredientService, IngredientService>();
+            services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IRecipeIngredientPriceService, RecipeIngredientPriceService>();
+
             services.AddDbContext<NormativeCalculatorDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+          
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<IIngredientService, IngredientService>();
             services.AddScoped<IAuthRepository, AuthRepository>();
@@ -69,7 +74,6 @@ namespace NormativeCalculator
                     ValidateAudience = false
                 };
             });
-        }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

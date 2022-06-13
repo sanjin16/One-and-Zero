@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NormativeCalculator.Database.EF;
 
 namespace NormativeCalculator.Database.Migrations
 {
     [DbContext(typeof(NormativeCalculatorDbContext))]
-    partial class NormativeCalculatorDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220613080730_category")]
+    partial class category
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,13 +36,13 @@ namespace NormativeCalculator.Database.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("RecipeCategories");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2022, 6, 13, 10, 30, 3, 216, DateTimeKind.Local).AddTicks(1591),
+                            DateCreated = new DateTime(2022, 6, 13, 10, 7, 29, 677, DateTimeKind.Local).AddTicks(7506),
                             Name = "Pancakes"
                         },
                         new
@@ -52,25 +54,25 @@ namespace NormativeCalculator.Database.Migrations
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(2022),
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(2020),
                             Name = "Cake"
                         },
                         new
                         {
                             Id = 4,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(2022),
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(2020),
                             Name = "Lava cake"
                         },
                         new
                         {
                             Id = 5,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(2022),
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(2020),
                             Name = "Muffin"
                         },
                         new
                         {
                             Id = 6,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(2022),
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(2020),
                             Name = "Carrot cake"
                         });
                 });
@@ -82,9 +84,6 @@ namespace NormativeCalculator.Database.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("MeasureType")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -92,6 +91,9 @@ namespace NormativeCalculator.Database.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("measureType")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -102,82 +104,82 @@ namespace NormativeCalculator.Database.Migrations
                         new
                         {
                             Id = 1,
-                            MeasureType = 3,
                             Name = "Suger",
                             Price = 2m,
-                            Quantity = 100
+                            Quantity = 100,
+                            measureType = 3
                         },
                         new
                         {
                             Id = 2,
-                            MeasureType = 5,
                             Name = "Flour",
                             Price = 6m,
-                            Quantity = 100
+                            Quantity = 100,
+                            measureType = 5
                         },
                         new
                         {
                             Id = 3,
-                            MeasureType = 1,
                             Name = "egg",
                             Price = 2m,
-                            Quantity = 2
+                            Quantity = 2,
+                            measureType = 1
                         },
                         new
                         {
                             Id = 4,
-                            MeasureType = 3,
                             Name = "Brown suger",
                             Price = 2m,
-                            Quantity = 200
+                            Quantity = 200,
+                            measureType = 3
                         },
                         new
                         {
                             Id = 5,
-                            MeasureType = 5,
                             Name = "Milk",
                             Price = 1m,
-                            Quantity = 200
+                            Quantity = 200,
+                            measureType = 5
                         },
                         new
                         {
                             Id = 6,
-                            MeasureType = 5,
                             Name = "Water",
                             Price = 2m,
-                            Quantity = 1
+                            Quantity = 1,
+                            measureType = 5
                         },
                         new
                         {
                             Id = 7,
-                            MeasureType = 3,
                             Name = "Buter",
                             Price = 4m,
-                            Quantity = 350
+                            Quantity = 350,
+                            measureType = 3
                         },
                         new
                         {
                             Id = 8,
-                            MeasureType = 2,
                             Name = "Walnut",
                             Price = 10m,
-                            Quantity = 2
+                            Quantity = 2,
+                            measureType = 2
                         },
                         new
                         {
                             Id = 9,
-                            MeasureType = 1,
                             Name = "Banana",
                             Price = 3m,
-                            Quantity = 5
+                            Quantity = 5,
+                            measureType = 1
                         },
                         new
                         {
                             Id = 10,
-                            MeasureType = 3,
                             Name = "Salt",
                             Price = 1m,
-                            Quantity = 1
+                            Quantity = 1,
+                            measureType = 3
                         });
                 });
 
@@ -188,9 +190,6 @@ namespace NormativeCalculator.Database.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
 
@@ -200,12 +199,15 @@ namespace NormativeCalculator.Database.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("RecipeCategoryId")
+                        .HasColumnType("int");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("RecipeCategoryId");
 
                     b.HasIndex("UserId");
 
@@ -265,8 +267,8 @@ namespace NormativeCalculator.Database.Migrations
                             Id = 1,
                             FirstName = "Sanjin",
                             LastName = "Sabanovic",
-                            PasswordHash = new byte[] { 101, 6, 37, 54, 230, 249, 144, 10, 110, 71, 47, 68, 47, 59, 42, 70, 33, 78, 105, 203, 127, 32, 68, 75, 125, 78, 184, 67, 143, 16, 195, 208, 246, 47, 88, 190, 12, 222, 92, 151, 113, 36, 34, 58, 101, 94, 248, 240, 30, 254, 136, 218, 76, 197, 136, 231, 72, 173, 20, 172, 108, 165, 115, 189 },
-                            PasswordSalt = new byte[] { 8, 27, 76, 217, 129, 191, 112, 42, 55, 225, 22, 102, 120, 176, 225, 207, 139, 166, 140, 159, 79, 109, 226, 19, 172, 81, 253, 8, 196, 12, 95, 33, 229, 16, 47, 164, 197, 126, 87, 69, 251, 37, 107, 147, 251, 143, 209, 29, 82, 26, 45, 143, 165, 165, 42, 251, 228, 149, 112, 175, 181, 225, 153, 206, 119, 50, 178, 222, 149, 22, 2, 252, 156, 29, 75, 3, 246, 19, 35, 17, 213, 117, 34, 41, 127, 54, 4, 193, 188, 109, 179, 43, 123, 65, 14, 229, 220, 173, 88, 151, 178, 239, 116, 57, 28, 10, 68, 23, 220, 230, 153, 220, 121, 20, 145, 210, 205, 179, 228, 12, 189, 126, 66, 207, 125, 149, 70, 53 },
+                            PasswordHash = new byte[] { 187, 242, 146, 121, 215, 22, 101, 214, 42, 28, 146, 4, 155, 216, 245, 20, 175, 63, 251, 27, 48, 87, 112, 86, 173, 29, 178, 39, 176, 200, 124, 131, 214, 73, 235, 137, 62, 152, 136, 10, 230, 42, 221, 23, 61, 9, 167, 1, 196, 142, 153, 160, 139, 107, 121, 92, 221, 153, 146, 54, 48, 110, 66, 203 },
+                            PasswordSalt = new byte[] { 70, 46, 178, 163, 157, 222, 195, 138, 64, 190, 30, 232, 237, 118, 107, 39, 197, 137, 117, 187, 184, 166, 98, 132, 188, 231, 145, 187, 101, 49, 140, 53, 103, 72, 66, 120, 25, 119, 206, 212, 23, 125, 237, 116, 222, 95, 177, 25, 184, 134, 14, 35, 98, 20, 102, 218, 190, 112, 187, 199, 68, 183, 159, 38, 129, 230, 53, 199, 13, 214, 82, 197, 36, 212, 85, 94, 34, 211, 165, 154, 169, 124, 218, 216, 175, 255, 65, 218, 160, 229, 22, 110, 14, 18, 232, 4, 75, 242, 51, 131, 7, 147, 223, 21, 235, 170, 35, 179, 225, 59, 26, 222, 188, 145, 144, 4, 107, 109, 49, 149, 75, 3, 253, 52, 174, 127, 39, 50 },
                             Username = "sanjin"
                         },
                         new
@@ -274,17 +276,17 @@ namespace NormativeCalculator.Database.Migrations
                             Id = 2,
                             FirstName = "Merisa",
                             LastName = "Mulac",
-                            PasswordHash = new byte[] { 33, 46, 52, 150, 121, 122, 12, 216, 12, 38, 64, 16, 203, 142, 236, 143, 79, 200, 229, 65, 138, 114, 92, 13, 149, 234, 180, 145, 16, 65, 255, 81, 66, 210, 74, 183, 139, 26, 91, 20, 16, 231, 255, 232, 196, 98, 156, 14, 169, 131, 74, 130, 124, 31, 188, 180, 33, 222, 71, 158, 134, 130, 220, 126 },
-                            PasswordSalt = new byte[] { 8, 27, 76, 217, 129, 191, 112, 42, 55, 225, 22, 102, 120, 176, 225, 207, 139, 166, 140, 159, 79, 109, 226, 19, 172, 81, 253, 8, 196, 12, 95, 33, 229, 16, 47, 164, 197, 126, 87, 69, 251, 37, 107, 147, 251, 143, 209, 29, 82, 26, 45, 143, 165, 165, 42, 251, 228, 149, 112, 175, 181, 225, 153, 206, 119, 50, 178, 222, 149, 22, 2, 252, 156, 29, 75, 3, 246, 19, 35, 17, 213, 117, 34, 41, 127, 54, 4, 193, 188, 109, 179, 43, 123, 65, 14, 229, 220, 173, 88, 151, 178, 239, 116, 57, 28, 10, 68, 23, 220, 230, 153, 220, 121, 20, 145, 210, 205, 179, 228, 12, 189, 126, 66, 207, 125, 149, 70, 53 },
+                            PasswordHash = new byte[] { 211, 40, 178, 253, 96, 161, 93, 127, 76, 170, 239, 169, 243, 117, 74, 170, 73, 18, 40, 114, 242, 252, 35, 151, 162, 131, 92, 100, 254, 244, 245, 6, 168, 106, 105, 50, 66, 192, 124, 8, 233, 172, 91, 169, 151, 111, 68, 247, 41, 244, 125, 18, 53, 47, 122, 76, 64, 148, 176, 13, 25, 101, 19, 180 },
+                            PasswordSalt = new byte[] { 70, 46, 178, 163, 157, 222, 195, 138, 64, 190, 30, 232, 237, 118, 107, 39, 197, 137, 117, 187, 184, 166, 98, 132, 188, 231, 145, 187, 101, 49, 140, 53, 103, 72, 66, 120, 25, 119, 206, 212, 23, 125, 237, 116, 222, 95, 177, 25, 184, 134, 14, 35, 98, 20, 102, 218, 190, 112, 187, 199, 68, 183, 159, 38, 129, 230, 53, 199, 13, 214, 82, 197, 36, 212, 85, 94, 34, 211, 165, 154, 169, 124, 218, 216, 175, 255, 65, 218, 160, 229, 22, 110, 14, 18, 232, 4, 75, 242, 51, 131, 7, 147, 223, 21, 235, 170, 35, 179, 225, 59, 26, 222, 188, 145, 144, 4, 107, 109, 49, 149, 75, 3, 253, 52, 174, 127, 39, 50 },
                             Username = "merisa"
                         });
                 });
 
             modelBuilder.Entity("NormativeCalculator.Database.Entities.Recipe", b =>
                 {
-                    b.HasOne("NormativeCalculator.Database.Entities.Category", "Category")
+                    b.HasOne("NormativeCalculator.Database.Entities.Category", "RecipeCategory")
                         .WithMany()
-                        .HasForeignKey("CategoryId")
+                        .HasForeignKey("RecipeCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -294,7 +296,7 @@ namespace NormativeCalculator.Database.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Category");
+                    b.Navigation("RecipeCategory");
 
                     b.Navigation("User");
                 });

@@ -24,10 +24,10 @@ namespace NormativeCalculator.Service.Service
             _mapper = mapper;
             _recipeIngredientPriceService = recipeIngredientPriceService;
         }
-        public async Task<PaginationModel<List<RecipeDto>>> GetRecipeAsync(RecipeCategoryRequestDto request)
+        public async Task<PaginationModel<List<RecipeDto>>> GetRecipeAsync(RecipeSearchRequestDto request)
         {
             var list = await _context.Recipe.Include(i => i.RecipeIngredients).ThenInclude(
-                i => i.Ingredient).Where(i => i.RecipeCategoryId == request.CategoryId).Where(
+                i => i.Ingredient).Where(i => i.CategoryId == request.CategoryId).Where(
                 r => string.IsNullOrWhiteSpace(request.SearchText) || r.Name.ToLower().StartsWith(
                     request.SearchText.ToLower().Trim()) || r.Description.ToLower().StartsWith(
                         request.SearchText.ToLower().Trim()) || r.RecipeIngredients.Any(i => i.Ingredient.Name
@@ -58,7 +58,7 @@ namespace NormativeCalculator.Service.Service
                     {
                         RecipeId = entity.Id,
                         IngredientId = ingredient.Id,
-                        measureType = ingredient.measureType,
+                        MeasureType = ingredient.measureType,
                         Quantity = ingredient.Quantity
                     });
                 }
@@ -68,20 +68,25 @@ namespace NormativeCalculator.Service.Service
 
             return _mapper.Map<RecipeDto>(entity);
         }
-        public async Task DeleteRecipeAsync(int Id)
+        public async Task<RecipeDto> DeleteRecipeAsync(int Id)
         {
             var entity = await _context.Recipe.FirstOrDefaultAsync(i => i.Id == Id);
 
             _context.Recipe.Remove(entity);
             await _context.SaveChangesAsync();
-        }
-        public async Task UpdateRecipeAsync(UpdateRecipeRequestDto request)
-        {
-            var entity =await _context.Recipe.FirstOrDefaultAsync(r => r.Id == request.Id);
-            _mapper.Map(request, entity);
 
+            return _mapper.Map<RecipeDto>(entity);
+        }
+        public async Task<RecipeDto> UpdateRecipeAsync(int id, UpdateRecipeRequestDto request)
+        {
+            var entity = await _context.Recipe.FindAsync(id);
+            entity.DateCreated = DateTime.Now;
+
+            _mapper.Map(request, entity);
             _context.Recipe.Update(entity);
             await  _context.SaveChangesAsync();
+
+            return _mapper.Map<RecipeDto>(entity);
         }
 
         public async Task<GetRecipesDto> GetRecipeByIdAsync(int id)
@@ -95,7 +100,7 @@ namespace NormativeCalculator.Service.Service
                 RecipeIngredient = r.RecipeIngredients.Select(i => new GetRecipeIngredientDto
                 {
                     IngredinetId =i.IngredientId,
-                    Measure = i.measureType,
+                    Measure = i.MeasureType,
                     Name = i.Ingredient.Name,
                     Quantity = i.Quantity,
                     RecipeId = i.RecipeId,

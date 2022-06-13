@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace NormativeCalculator.DTOs.Request
 {
-    public class RecipeCategoryInsertDto
+    public class GetCategoryDto
     {
-        public int Name { get; set; }
-        public DateTime Created { get; set; }
+        public int Id { get; set; } 
+        public string Name { get; set; }    
+        public DateTime DateCreated { get; set; }   
     }
 }

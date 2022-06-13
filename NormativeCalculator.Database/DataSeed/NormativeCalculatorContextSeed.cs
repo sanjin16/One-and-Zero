@@ -22,29 +22,70 @@ namespace NormativeCalculator.Database.DataSeed
                     Id = 1,
                     LastName = "Sabanovic",
                     FirstName = "Sanjin",
-                    Username = "Sanjin",
+                    Username = "sanjin",
                     PasswordSalt = hmac.Key,
-                    PasswordHash= hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes("Password"))
-        }
+                    PasswordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes("Password"))
+                }
 
                 );
-            modelBuilder.Entity<RecipeCategories>().HasData
+            modelBuilder.Entity<User>().HasData
+  (
+          new User
+          {
+              Id = 2,
+              LastName = "Mulac",
+              FirstName = "Merisa",
+              Username = "merisa",
+              PasswordSalt = hmac.Key,
+              PasswordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes("Test"))
+          }
+
+          );
+            modelBuilder.Entity<Category>().HasData
             (
-            new RecipeCategories
+            new Category
             {
                 Id = 1,
                 Name = "Pancakes",
                 DateCreated = DateTime.Now,
 
             },
-            new RecipeCategories
+            new Category
             {
                 Id = 2,
                 Name = "Waffles",
                 DateCreated = new DateTime(new Random().Next(2022, 2022))
 
-            }
-            );
+            },
+              new Category
+              {
+                  Id = 3,
+                  Name = "Cake",
+                  DateCreated = new DateTime(new Random().Next(2022, 2022))
+
+              },
+                new Category
+                {
+                    Id = 4,
+                    Name = "Lava cake",
+                    DateCreated = new DateTime(new Random().Next(2022, 2022))
+
+                },
+                new Category
+                {
+                    Id = 5,
+                    Name = "Muffin",
+                    DateCreated = new DateTime(new Random().Next(2022, 2022))
+
+                },
+                   new Category
+                   {
+                       Id = 6,
+                       Name = "Carrot cake",
+                       DateCreated = new DateTime(new Random().Next(2022, 2022))
+
+                   }
+             );
             modelBuilder.Entity<Ingredient>().HasData
        (
        new Ingredient
@@ -53,7 +94,7 @@ namespace NormativeCalculator.Database.DataSeed
            Name = "Suger",
            Price = 2,
            Quantity = 100,
-           measureType = Common.Enum.MeasureType.gr,
+           MeasureType = Common.Enum.MeasureType.gr,
        },
         new Ingredient
         {
@@ -61,7 +102,7 @@ namespace NormativeCalculator.Database.DataSeed
             Name = "Flour",
             Price = 6,
             Quantity = 100,
-            measureType = Common.Enum.MeasureType.ml,
+            MeasureType = Common.Enum.MeasureType.ml,
         },
           new Ingredient
           {
@@ -69,7 +110,7 @@ namespace NormativeCalculator.Database.DataSeed
               Name = "egg",
               Price = 2,
               Quantity = 2,
-              measureType = Common.Enum.MeasureType.kom,
+              MeasureType = Common.Enum.MeasureType.kom,
           },
             new Ingredient
             {
@@ -77,7 +118,7 @@ namespace NormativeCalculator.Database.DataSeed
                 Name = "Brown suger",
                 Price = 2,
                 Quantity = 200,
-                measureType = Common.Enum.MeasureType.gr,
+                MeasureType = Common.Enum.MeasureType.gr,
             },
              new Ingredient
              {
@@ -85,7 +126,7 @@ namespace NormativeCalculator.Database.DataSeed
                  Name = "Milk",
                  Price = 1,
                  Quantity = 200,
-                 measureType = Common.Enum.MeasureType.ml,
+                 MeasureType = Common.Enum.MeasureType.ml,
              },
                new Ingredient
                {
@@ -93,7 +134,7 @@ namespace NormativeCalculator.Database.DataSeed
                    Name = "Water",
                    Price = 2,
                    Quantity = 1,
-                   measureType = Common.Enum.MeasureType.ml,
+                   MeasureType = Common.Enum.MeasureType.ml,
                },
                 new Ingredient
                 {
@@ -101,7 +142,7 @@ namespace NormativeCalculator.Database.DataSeed
                     Name = "Buter",
                     Price = 4,
                     Quantity = 350,
-                    measureType = Common.Enum.MeasureType.gr,
+                    MeasureType = Common.Enum.MeasureType.gr,
                 },
                 new Ingredient
                 {
@@ -109,7 +150,7 @@ namespace NormativeCalculator.Database.DataSeed
                     Name = "Walnut",
                     Price = 10,
                     Quantity = 2,
-                    measureType = Common.Enum.MeasureType.kg,
+                    MeasureType = Common.Enum.MeasureType.kg,
                 },
                  new Ingredient
                  {
@@ -117,7 +158,7 @@ namespace NormativeCalculator.Database.DataSeed
                      Name = "Banana",
                      Price = 3,
                      Quantity = 5,
-                     measureType = Common.Enum.MeasureType.kom,
+                     MeasureType = Common.Enum.MeasureType.kom,
                  },
                   new Ingredient
                   {
@@ -125,8 +166,8 @@ namespace NormativeCalculator.Database.DataSeed
                       Name = "Salt",
                       Price = 1,
                       Quantity = 1,
-                      measureType = Common.Enum.MeasureType.gr,
-                  });
+                      MeasureType = Common.Enum.MeasureType.gr,
+                  });  
         }
     }
 }

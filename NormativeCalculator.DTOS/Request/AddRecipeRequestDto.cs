@@ -11,15 +11,10 @@ namespace NormativeCalculator.DTOs.Request
     public class AddRecipeRequestDto
     {
         public string Name { get; set; }
-
         public string Description { get; set; }
-
-        public DateTime CreatedAt { get; set; }
-
-        public int RecipeCategoryId { get; set; }
-
+        public DateTime CreateDate { get; set; }
+        public int CategoryId { get; set; }
         public int UserId { get; set; }
-
         public List<GetIngredientDto> Ingredients { get; set; }
 
     }
