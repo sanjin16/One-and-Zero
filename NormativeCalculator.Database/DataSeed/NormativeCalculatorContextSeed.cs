@@ -13,19 +13,19 @@ namespace NormativeCalculator.Database.DataSeed
     {
         public static void DataSeed(this ModelBuilder modelBuilder)
         {
-
+            
             using var hmac = new HMACSHA512();
             modelBuilder.Entity<User>().HasData
         (
                 new User
                 {
                     Id = 1,
-                    LastName="Sabanovic",
-                    FirstName="Sanjin",
-                    Username= "Sanjin",
-                    PasswordHash =hmac.ComputeHash(Encoding.UTF8.GetBytes("Password")),
-                    PasswordSalt=hmac.Key
-                }
+                    LastName = "Sabanovic",
+                    FirstName = "Sanjin",
+                    Username = "Sanjin",
+                    PasswordSalt = hmac.Key,
+                    PasswordHash= hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes("Password"))
+        }
 
                 );
             modelBuilder.Entity<RecipeCategories>().HasData
