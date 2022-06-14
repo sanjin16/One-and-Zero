@@ -59,12 +59,12 @@ namespace NormativeCalculator
             services.AddScoped<IRecipeIngredientPriceService, RecipeIngredientPriceService>();
             services.AddScoped<IIngredientService, IngredientService>();
             services.AddScoped<IAuthRepository, AuthRepository>();
-          
+
             services.AddDbContext<NormativeCalculatorDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddAutoMapper(typeof(Startup));
-         
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(Options =>
             {
@@ -81,32 +81,27 @@ namespace NormativeCalculator
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+                    if (env.IsDevelopment())
+                    {
+                        app.UseSwagger();
+                        app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NormativeCalculator v1"));
+                    }
+                    app.UseMiddleware<ExceptionMiddleware>();
 
-            // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-            public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+                    app.UseHttpsRedirection();
 
-            {
-                if (env.IsDevelopment())
-                {
-                    app.UseSwagger();
-                    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NormativeCalculator v1"));
+                    app.UseRouting();
+
+                    app.UseAuthentication();
+
+                    app.UseAuthorization();
+
+                    app.UseEndpoints(endpoints =>
+                    {
+                        endpoints.MapControllers();
+                    });
                 }
-                app.UseMiddleware<ExceptionMiddleware>();
-
-                app.UseHttpsRedirection();
-
-                app.UseRouting();
-
-                app.UseAuthentication();
-
-                app.UseAuthorization();
-
-                app.UseEndpoints(endpoints =>
-                {
-                    endpoints.MapControllers();
-                });
-            }
         }
     }
+
 
