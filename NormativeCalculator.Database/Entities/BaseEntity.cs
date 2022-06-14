@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace NormativeCalculator.Database.Entities
 {
-    public class Category : BaseEntity
+    public class BaseEntity
     {
-        public string Name { get; set; }
-        public DateTime DateCreated { get; set; }
+        [Key]
+        public int Id { get; set; }
+        public bool? IsDeleted { get; set; }    
     }
 }

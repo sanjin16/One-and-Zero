@@ -33,7 +33,7 @@ namespace Internship_Project.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteRecipeById(int id)
+        public async Task<IActionResult> DeleteRecipeAsync(int id)
         {
              return Ok(await _recipeService.DeleteRecipeAsync(id));
         }

@@ -13,8 +13,8 @@ namespace NormativeCalculator.Service.Interface
     {
         Task<PaginationModel<List<GetCategoryDto>>> GetCategoryAsync(int skip);
         Task<GetCategoryDto> GetCategoryByIdAsync(int id);
-        Task<GetCategoryDto> AddRecipeCategoryAsync(AddCategoryRequestDto request);
-        Task<GetCategoryDto> UpdateRecipeCategoryAsync(int id, AddCategoryRequestDto request);
-        Task<bool> DeleteRecipeCategoryAsync(int id);
+        Task<GetCategoryDto> AddCategoryAsync(AddCategoryRequestDto request);
+        Task<GetCategoryDto> UpdateCategoryAsync(int id, AddCategoryRequestDto request);
+        Task<GetCategoryDto> DeleteCategoryAsync(int id);
     }
 }

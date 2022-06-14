@@ -17,7 +17,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using NormativeCalculator.Database.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Filters;
@@ -58,13 +57,14 @@ namespace NormativeCalculator
             services.AddScoped<IIngredientService, IngredientService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IRecipeIngredientPriceService, RecipeIngredientPriceService>();
-
+            services.AddScoped<IIngredientService, IngredientService>();
+            services.AddScoped<IAuthRepository, AuthRepository>();
+          
             services.AddDbContext<NormativeCalculatorDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddAutoMapper(typeof(Startup));
-            services.AddScoped<IIngredientService, IngredientService>();
-            services.AddScoped<IAuthRepository, AuthRepository>();
+         
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(Options =>
             {
@@ -78,8 +78,14 @@ namespace NormativeCalculator
             });
         }
 
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            if (env.IsDevelopment())
+
             // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
             public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+
             {
                 if (env.IsDevelopment())
                 {

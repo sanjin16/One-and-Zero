@@ -33,21 +33,21 @@ namespace Internship_Project.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> InsertRecipeCategory (AddCategoryRequestDto request)
+        public async Task<IActionResult> InsertCategory (AddCategoryRequestDto request)
         {
-            return Ok(await _recipeCategoryService.AddRecipeCategoryAsync(request));
+            return Ok(await _recipeCategoryService.AddCategoryAsync(request));
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateRecipeCategory(int id, AddCategoryRequestDto request)
+        public async Task<IActionResult> UpdateCategory(int id, AddCategoryRequestDto request)
         {
-            return Ok(await _recipeCategoryService.UpdateRecipeCategoryAsync(id, request));
+            return Ok(await _recipeCategoryService.UpdateCategoryAsync(id, request));
         }
 
         [HttpDelete("{id}")]
-        public async Task<bool> Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            return await _recipeCategoryService.DeleteRecipeCategoryAsync(id);
+            return Ok(await _recipeCategoryService.DeleteCategoryAsync(id));
         }
     }
 }

@@ -8,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace NormativeCalculator.Database.Entities
 {
-    public class Recipe
+    public class Recipe : BaseEntity
     {
-        [Key]
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime DateCreated { get; set; }
@@ -21,7 +19,7 @@ namespace NormativeCalculator.Database.Entities
         public int CategoryId { get; set; }
 
         [ForeignKey("UserId")]
-        public User User { get; set; }  
+        public User User { get; set; }
         public int UserId { get; set; }
         public IEnumerable<RecipeIngredients> RecipeIngredients { get; set; }
     }

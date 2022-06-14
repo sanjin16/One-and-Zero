@@ -10,6 +10,7 @@ namespace NormativeCalculator.Database.Entities
 {
     public class RecipeIngredients
     {
+
         [ForeignKey("RecipeId")]
         public Recipe Recipe { get; set; }
         public int RecipeId { get; set; }
@@ -18,6 +19,6 @@ namespace NormativeCalculator.Database.Entities
         public Ingredient Ingredient { get; set; }
         public int IngredientId { get; set; }
         public int Quantity { get; set; }
-        public MeasureType MeasureType { get; set; } 
+        public MeasureType MeasureType { get; set; }
     }
 }

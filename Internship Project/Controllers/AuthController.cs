@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using NormativeCalculator.Database.Authentication;
 using NormativeCalculator.Database.Entities;
 using NormativeCalculator.DTOs.Request;
 using NormativeCalculator.DTOs.Response;
+using NormativeCalculator.Service.Service;
 using System.Threading.Tasks;
 
 namespace Internship_Project.Controllers
@@ -28,7 +28,6 @@ namespace Internship_Project.Controllers
                 return BadRequest(response);
             }
             return Ok(response);
-
         }
 
         [HttpPost("Login")]
@@ -42,8 +41,6 @@ namespace Internship_Project.Controllers
                 return BadRequest(response);
             }
             return Ok(response);
-
-
         }
     }
 }

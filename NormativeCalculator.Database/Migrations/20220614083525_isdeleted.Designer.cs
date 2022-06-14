@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NormativeCalculator.Database.EF;
 
 namespace NormativeCalculator.Database.Migrations
 {
     [DbContext(typeof(NormativeCalculatorDbContext))]
-    partial class NormativeCalculatorDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220614083525_isdeleted")]
+    partial class isdeleted
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,42 +45,42 @@ namespace NormativeCalculator.Database.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2020, 3, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateCreated = new DateTime(2022, 6, 14, 10, 35, 24, 812, DateTimeKind.Local).AddTicks(7971),
                             IsDeleted = false,
                             Name = "Pancakes"
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2021, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(2022),
                             IsDeleted = false,
                             Name = "Waffles"
                         },
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(2020, 9, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(2022),
                             IsDeleted = false,
                             Name = "Cake"
                         },
                         new
                         {
                             Id = 4,
-                            DateCreated = new DateTime(2021, 7, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(2022),
                             IsDeleted = false,
                             Name = "Lava cake"
                         },
                         new
                         {
                             Id = 5,
-                            DateCreated = new DateTime(2022, 5, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(2022),
                             IsDeleted = false,
                             Name = "Muffin"
                         },
                         new
                         {
                             Id = 6,
-                            DateCreated = new DateTime(2022, 5, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified).AddTicks(2022),
                             IsDeleted = false,
                             Name = "Carrot cake"
                         });
@@ -290,8 +292,8 @@ namespace NormativeCalculator.Database.Migrations
                             Id = 1,
                             FirstName = "Sanjin",
                             LastName = "Sabanovic",
-                            PasswordHash = new byte[] { 222, 213, 124, 63, 119, 27, 189, 100, 251, 4, 48, 218, 105, 237, 122, 48, 164, 181, 247, 24, 118, 106, 97, 29, 9, 181, 167, 225, 86, 210, 95, 116, 107, 38, 192, 97, 154, 163, 75, 2, 225, 75, 46, 38, 133, 237, 148, 64, 117, 142, 172, 126, 108, 226, 107, 52, 39, 233, 236, 246, 175, 107, 0, 87 },
-                            PasswordSalt = new byte[] { 54, 170, 19, 133, 56, 169, 163, 151, 177, 254, 31, 169, 214, 78, 126, 138, 67, 114, 16, 38, 92, 175, 179, 52, 30, 161, 217, 7, 188, 165, 233, 165, 212, 153, 237, 95, 198, 58, 245, 196, 167, 229, 187, 48, 124, 173, 30, 18, 88, 22, 199, 61, 195, 154, 250, 131, 63, 186, 134, 158, 147, 4, 161, 67, 120, 130, 168, 207, 193, 44, 143, 106, 153, 195, 252, 210, 126, 250, 50, 188, 142, 44, 54, 98, 140, 116, 73, 97, 63, 114, 208, 205, 111, 217, 117, 137, 141, 102, 157, 200, 93, 179, 101, 52, 248, 114, 176, 138, 72, 201, 64, 179, 25, 152, 87, 108, 20, 4, 224, 54, 206, 172, 145, 223, 218, 157, 137, 3 },
+                            PasswordHash = new byte[] { 78, 147, 153, 224, 113, 243, 66, 209, 99, 66, 17, 244, 199, 199, 232, 15, 184, 252, 17, 45, 200, 114, 58, 145, 128, 62, 201, 28, 179, 32, 139, 153, 214, 14, 241, 239, 124, 85, 135, 227, 109, 215, 69, 104, 153, 187, 103, 196, 154, 214, 80, 52, 21, 211, 81, 225, 177, 138, 215, 247, 39, 22, 95, 76 },
+                            PasswordSalt = new byte[] { 243, 162, 18, 164, 142, 240, 75, 128, 170, 199, 50, 209, 229, 140, 225, 119, 144, 94, 22, 109, 221, 252, 28, 5, 148, 247, 172, 244, 48, 87, 203, 225, 254, 116, 127, 224, 207, 134, 251, 120, 63, 183, 137, 242, 129, 142, 83, 229, 176, 174, 193, 85, 124, 186, 5, 134, 112, 88, 169, 80, 67, 146, 82, 226, 59, 159, 32, 84, 214, 36, 90, 102, 89, 88, 240, 46, 236, 190, 249, 153, 185, 71, 91, 18, 168, 70, 45, 237, 77, 225, 129, 130, 163, 175, 208, 146, 29, 187, 113, 78, 84, 42, 187, 115, 69, 129, 44, 61, 76, 137, 85, 181, 45, 193, 30, 65, 122, 229, 98, 104, 89, 186, 184, 154, 40, 32, 107, 124 },
                             Username = "sanjin"
                         },
                         new
@@ -299,8 +301,8 @@ namespace NormativeCalculator.Database.Migrations
                             Id = 2,
                             FirstName = "Merisa",
                             LastName = "Mulac",
-                            PasswordHash = new byte[] { 105, 253, 25, 144, 29, 28, 227, 30, 126, 69, 240, 63, 115, 255, 169, 128, 16, 116, 35, 194, 209, 17, 172, 194, 131, 153, 157, 99, 160, 57, 124, 44, 68, 179, 227, 57, 210, 228, 193, 71, 121, 21, 53, 36, 33, 215, 108, 85, 177, 226, 79, 156, 20, 147, 149, 206, 157, 173, 253, 173, 33, 111, 169, 112 },
-                            PasswordSalt = new byte[] { 54, 170, 19, 133, 56, 169, 163, 151, 177, 254, 31, 169, 214, 78, 126, 138, 67, 114, 16, 38, 92, 175, 179, 52, 30, 161, 217, 7, 188, 165, 233, 165, 212, 153, 237, 95, 198, 58, 245, 196, 167, 229, 187, 48, 124, 173, 30, 18, 88, 22, 199, 61, 195, 154, 250, 131, 63, 186, 134, 158, 147, 4, 161, 67, 120, 130, 168, 207, 193, 44, 143, 106, 153, 195, 252, 210, 126, 250, 50, 188, 142, 44, 54, 98, 140, 116, 73, 97, 63, 114, 208, 205, 111, 217, 117, 137, 141, 102, 157, 200, 93, 179, 101, 52, 248, 114, 176, 138, 72, 201, 64, 179, 25, 152, 87, 108, 20, 4, 224, 54, 206, 172, 145, 223, 218, 157, 137, 3 },
+                            PasswordHash = new byte[] { 120, 169, 43, 32, 165, 51, 153, 65, 237, 210, 236, 36, 162, 94, 202, 197, 137, 107, 28, 71, 72, 157, 219, 0, 244, 153, 26, 237, 67, 5, 102, 26, 79, 229, 99, 247, 118, 23, 104, 94, 234, 14, 134, 31, 226, 138, 162, 42, 106, 123, 188, 78, 104, 0, 35, 253, 235, 84, 122, 136, 9, 9, 232, 128 },
+                            PasswordSalt = new byte[] { 243, 162, 18, 164, 142, 240, 75, 128, 170, 199, 50, 209, 229, 140, 225, 119, 144, 94, 22, 109, 221, 252, 28, 5, 148, 247, 172, 244, 48, 87, 203, 225, 254, 116, 127, 224, 207, 134, 251, 120, 63, 183, 137, 242, 129, 142, 83, 229, 176, 174, 193, 85, 124, 186, 5, 134, 112, 88, 169, 80, 67, 146, 82, 226, 59, 159, 32, 84, 214, 36, 90, 102, 89, 88, 240, 46, 236, 190, 249, 153, 185, 71, 91, 18, 168, 70, 45, 237, 77, 225, 129, 130, 163, 175, 208, 146, 29, 187, 113, 78, 84, 42, 187, 115, 69, 129, 44, 61, 76, 137, 85, 181, 45, 193, 30, 65, 122, 229, 98, 104, 89, 186, 184, 154, 40, 32, 107, 124 },
                             Username = "merisa"
                         });
                 });
