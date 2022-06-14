@@ -45,7 +45,7 @@ namespace NormativeCalculator.Service.IngredientService
 
                 if (ingredient != null)
                 {
-                    _context.Ingredients.Remove(ingredient);
+                    ingredient.IsDeleted = true;
 
                     await _context.SaveChangesAsync();
 

@@ -35,18 +35,21 @@ namespace NormativeCalculator.Service.Service
                         {
                             Id = s.Id,
                             Name = s.Name,
-                            Description = s.Description,
+                            //Description = s.Description,
+                            //CategoryId = s.CategoryId,  
                             TotalCost = _recipeIngredientPriceService.RecipePrice(s)
                         }).ToListAsync();
 
             var count = _context.Recipe.Count();
             var data = _mapper.Map<List<RecipeDto>>(list);
+
             return new PaginationModel<List<RecipeDto>>(data, count);
         }
         public async Task<RecipeDto> InsertRecipeAsync(AddRecipeRequestDto request)
         {
             var entity = _mapper.Map<Recipe>(request);
             entity.DateCreated = DateTime.Now;
+
             await _context.AddAsync(entity);
             await _context.SaveChangesAsync();
 
@@ -71,8 +74,8 @@ namespace NormativeCalculator.Service.Service
         public async Task<RecipeDto> DeleteRecipeAsync(int Id)
         {
             var entity = await _context.Recipe.FirstOrDefaultAsync(i => i.Id == Id);
-
-            _context.Recipe.Remove(entity);
+            entity.IsDeleted = true;
+           
             await _context.SaveChangesAsync();
 
             return _mapper.Map<RecipeDto>(entity);
@@ -83,6 +86,7 @@ namespace NormativeCalculator.Service.Service
             entity.DateCreated = DateTime.Now;
 
             _mapper.Map(request, entity);
+
             _context.Recipe.Update(entity);
             await  _context.SaveChangesAsync();
 
@@ -96,7 +100,7 @@ namespace NormativeCalculator.Service.Service
             {
                 Id = r.Id,
                 Name = r.Name,
-                Description = r.Description,
+                //Description = r.Description,
                 RecipeIngredient = r.RecipeIngredients.Select(i => new GetRecipeIngredientDto
                 {
                     IngredinetId =i.IngredientId,
@@ -107,7 +111,6 @@ namespace NormativeCalculator.Service.Service
                     Cost = _recipeIngredientPriceService.IngredientPrice(i)
                 }).ToList(),
                 TotalCost = _recipeIngredientPriceService.RecipePrice(r)
-
 
             }).FirstOrDefaultAsync(i => i.Id == id);
             return entity;

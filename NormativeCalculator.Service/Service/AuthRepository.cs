@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using NormativeCalculator.Database.EF;
 using NormativeCalculator.Database.Entities;
+using NormativeCalculator.DTOs.Response;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -11,7 +12,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NormativeCalculator.Database.Authentication
+namespace NormativeCalculator.Service.Service
 {
     public class AuthRepository : IAuthRepository
     {
