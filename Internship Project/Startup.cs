@@ -21,6 +21,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Filters;
 using Internship_Project.Middleware;
+using NormativeCalculator.Database.Authentication;
 
 namespace NormativeCalculator
 {
