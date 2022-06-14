@@ -1,8 +1,5 @@
 ﻿using NormativeCalculator.Database.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using NormativeCalculator.DTOs.Response;
 using System.Threading.Tasks;
 
 namespace NormativeCalculator.Database.Authentication

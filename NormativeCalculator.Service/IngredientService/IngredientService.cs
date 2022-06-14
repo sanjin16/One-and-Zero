@@ -39,8 +39,7 @@ namespace NormativeCalculator.Service.IngredientService
         public async Task<ServiceResponse<List<GetIngredientDto>>> DeleteIngredient(int id)
         {
             var ServiceResponse = new ServiceResponse<List<GetIngredientDto>>();
-            try
-            {
+
                 Ingredient ingredient = await _context.Ingredients.FirstOrDefaultAsync(c => c.Id == id);
 
                 if (ingredient != null)
@@ -58,13 +57,6 @@ namespace NormativeCalculator.Service.IngredientService
                     ServiceResponse.Message = "Ingredient not found.";
                 }
                 return ServiceResponse;
-            }
-            catch (Exception ex)
-            {
-                ServiceResponse.Success = false;
-                ServiceResponse.Message = ex.Message;
-            }
-            return ServiceResponse;
         }
 
         public async Task<ServiceResponse<List<GetIngredientDto>>> GetAllIngredients()
@@ -85,8 +77,7 @@ namespace NormativeCalculator.Service.IngredientService
         public async Task<ServiceResponse<GetIngredientDto>> UpdateIngredient(UpdateIngredientDto updatedIngredient)
         {
             var ServiceResponse = new ServiceResponse<GetIngredientDto>();
-            try
-            {
+
                 Ingredient ingredient = await _context.Ingredients
                     .FirstOrDefaultAsync(c => c.Id == updatedIngredient.Id);
                 if (ingredient.Id == updatedIngredient.Id)
@@ -106,12 +97,7 @@ namespace NormativeCalculator.Service.IngredientService
                     ServiceResponse.Success = false;
                     ServiceResponse.Message = "Character not found.";
                 }
-            }
-            catch (Exception ex)
-            {
-                ServiceResponse.Success = false;
-                ServiceResponse.Message = ex.Message;
-            }
+
             return ServiceResponse;
         }
     }

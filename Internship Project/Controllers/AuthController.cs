@@ -2,6 +2,7 @@
 using NormativeCalculator.Database.Authentication;
 using NormativeCalculator.Database.Entities;
 using NormativeCalculator.DTOs.Request;
+using NormativeCalculator.DTOs.Response;
 using System.Threading.Tasks;
 
 namespace Internship_Project.Controllers
