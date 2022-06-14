@@ -30,7 +30,7 @@ namespace NormativeCalculator.Service.Service
         }
         public async Task<PaginationModel<List<GetCategoryDto>>> GetCategoryAsync(int skip)
         {
-            var list = await _context.Category.OrderByDescending(c => c.DateCreated).Skip(skip).Take(7).ToListAsync();
+            var list = await _context.Category.OrderByDescending(c => c.DateCreated).Skip(skip).Take(10).ToListAsync();
             var data = _mapper.Map<List<GetCategoryDto>>(list);
             var count = _context.Category.Count();
 
@@ -41,6 +41,7 @@ namespace NormativeCalculator.Service.Service
         {
             var entity = _mapper.Map<Category>(request);
             entity.DateCreated = DateTime.Now;
+            entity.IsDeleted = false;
 
             await _context.Set<Category>().AddAsync(entity);
             await _context.SaveChangesAsync();

@@ -126,6 +126,5 @@ namespace NormativeCalculator.Service.Service
 
             return tokenHandler.WriteToken(token);
         }
-
     }
 }

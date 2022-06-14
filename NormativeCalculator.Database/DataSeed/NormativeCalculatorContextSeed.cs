@@ -46,7 +46,7 @@ namespace NormativeCalculator.Database.DataSeed
             {
                 Id = 1,
                 Name = "Pancakes",
-                DateCreated = DateTime.Now.Date,
+                DateCreated = new DateTime(new Random().Next(2020, 2022), 3, 9),
                 IsDeleted = false,  
             },
             new Category
@@ -82,7 +82,7 @@ namespace NormativeCalculator.Database.DataSeed
                    {
                        Id = 6,
                        Name = "Carrot cake",
-                       DateCreated = new DateTime(new Random().Next(2022, 2022)),
+                       DateCreated = new DateTime(new Random().Next(2022, 2022),5,6 ),
                        IsDeleted = false
                    }
              );

@@ -14,7 +14,6 @@ namespace NormativeCalculator.Database.EF
         public NormativeCalculatorDbContext(DbContextOptions<NormativeCalculatorDbContext> options) : base(options)
         {
         }
-
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Recipe> Recipe { get; set; }
         public DbSet<Category> Category { get; set; }

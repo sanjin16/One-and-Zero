@@ -49,6 +49,7 @@ namespace NormativeCalculator.Service.Service
         {
             var entity = _mapper.Map<Recipe>(request);
             entity.DateCreated = DateTime.Now;
+            entity.IsDeleted = false;
 
             await _context.AddAsync(entity);
             await _context.SaveChangesAsync();
@@ -57,11 +58,11 @@ namespace NormativeCalculator.Service.Service
             {
                 foreach (var ingredient in request.Ingredients)
                 {
-                    await _context.RecipeIngredients.AddAsync(new RecipeIngredients
+                    await _context.RecipeIngredients.AddAsync(new RecipeIngredients()
                     {
                         RecipeId = entity.Id,
                         IngredientId = ingredient.Id,
-                        MeasureType = ingredient.measureType,
+                        MeasureType = ingredient.MeasureType,
                         Quantity = ingredient.Quantity
                     });
                 }
@@ -95,7 +96,7 @@ namespace NormativeCalculator.Service.Service
 
         public async Task<GetRecipesDto> GetRecipeByIdAsync(int id)
         {
-            var entity = await _context.Recipe.Include(i => i.RecipeIngredients).Select(r =>
+            var entity = await _context.Recipe.Select(r =>
             new GetRecipesDto
             {
                 Id = r.Id,
