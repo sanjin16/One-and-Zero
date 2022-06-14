@@ -28,7 +28,6 @@ namespace Internship_Project.Controllers
                 return BadRequest(response);
             }
             return Ok(response);
-
         }
 
         [HttpPost("Login")]
@@ -42,8 +41,6 @@ namespace Internship_Project.Controllers
                 return BadRequest(response);
             }
             return Ok(response);
-
-
         }
     }
 }

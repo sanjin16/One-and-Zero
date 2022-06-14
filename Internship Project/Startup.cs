@@ -12,6 +12,7 @@ using NormativeCalculator.Database.EF;
 using NormativeCalculator.Service.Interface;
 using NormativeCalculator.Service.Service;
 using NormativeCalculator.Service.IngredientService;
+using NormativeCalculator.DTOs.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Filters;
+using Internship_Project.Middleware;
 
 namespace NormativeCalculator
 {
@@ -55,13 +57,14 @@ namespace NormativeCalculator
             services.AddScoped<IIngredientService, IngredientService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IRecipeIngredientPriceService, RecipeIngredientPriceService>();
-
+            services.AddScoped<IIngredientService, IngredientService>();
+            services.AddScoped<IAuthRepository, AuthRepository>();
+          
             services.AddDbContext<NormativeCalculatorDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddAutoMapper(typeof(Startup));
-            services.AddScoped<IIngredientService, IngredientService>();
-            services.AddScoped<IAuthRepository, AuthRepository>();
+         
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(Options =>
             {
@@ -74,28 +77,36 @@ namespace NormativeCalculator
                 };
             });
         }
+
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
+
+            // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+
             {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NormativeCalculator v1"));
+                if (env.IsDevelopment())
+                {
+                    app.UseSwagger();
+                    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NormativeCalculator v1"));
+                }
+                app.UseMiddleware<ExceptionMiddleware>();
+
+                app.UseHttpsRedirection();
+
+                app.UseRouting();
+
+                app.UseAuthentication();
+
+                app.UseAuthorization();
+
+                app.UseEndpoints(endpoints =>
+                {
+                    endpoints.MapControllers();
+                });
             }
-
-            app.UseHttpsRedirection();
-
-            app.UseRouting();
-
-            app.UseAuthentication();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
         }
     }
-}
+

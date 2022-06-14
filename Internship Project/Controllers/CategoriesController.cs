@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NormativeCalculator.Database.Helper;
 using NormativeCalculator.DTOs.Request;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Internship_Project.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase

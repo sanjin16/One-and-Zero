@@ -5,13 +5,13 @@ VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NormativeCalculator", "Internship Project\NormativeCalculator.csproj", "{178A4965-95DD-47A3-874E-145917A965B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NormativeCalculator.Database", "NormativeCalculator.Database\NormativeCalculator.Database.csproj", "{FEB1403A-ECD7-43DE-9F59-712AECE56E1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NormativeCalculator.Database", "NormativeCalculator.Database\NormativeCalculator.Database.csproj", "{FEB1403A-ECD7-43DE-9F59-712AECE56E1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NormativeCalculator.Service", "NormativeCalculator.Service\NormativeCalculator.Service.csproj", "{CD7CC91F-7488-40DE-B693-023D32CD344E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NormativeCalculator.Service", "NormativeCalculator.Service\NormativeCalculator.Service.csproj", "{CD7CC91F-7488-40DE-B693-023D32CD344E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NormativeCalculator.DTOs", "NormativeCalculator.DTOS\NormativeCalculator.DTOs.csproj", "{CD4EDC96-C8B1-4F1D-84DF-99C67E71257A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NormativeCalculator.DTOs", "NormativeCalculator.DTOS\NormativeCalculator.DTOs.csproj", "{CD4EDC96-C8B1-4F1D-84DF-99C67E71257A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NormativeCalculator.Common", "NormativeCalculator.Common\NormativeCalculator.Common.csproj", "{934B591A-9EB4-43E8-A6AD-3687B91B2A20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NormativeCalculator.Common", "NormativeCalculator.Common\NormativeCalculator.Common.csproj", "{934B591A-9EB4-43E8-A6AD-3687B91B2A20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
