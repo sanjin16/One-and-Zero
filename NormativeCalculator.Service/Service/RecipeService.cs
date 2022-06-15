@@ -42,8 +42,24 @@ namespace NormativeCalculator.Service.Service
 
             var count = _context.Recipe.Count();
             var data = _mapper.Map<List<RecipeDto>>(list);
+            var sorted = data.OrderBy(q => q.TotalCost).ToList();
+            if (request.Sort!=null)
+            {
+                switch (request.Sort)
+                {
+                    case "asc":
+                        sorted = data.OrderBy(q => q.TotalCost).ToList();
+                        break;
+                    case "desc":
+                        sorted = data.OrderByDescending(q => q.TotalCost).ToList();
+                        break;
+                    default:
+                        sorted = data.OrderBy(q => q.TotalCost).ToList();
+                        break;
+                }
+            }
 
-            return new PaginationModel<List<RecipeDto>>(data, count);
+            return new PaginationModel<List<RecipeDto>>(sorted, count);
         }
         public async Task<RecipeDto> InsertRecipeAsync(AddRecipeRequestDto request)
         {
@@ -116,5 +132,6 @@ namespace NormativeCalculator.Service.Service
             }).FirstOrDefaultAsync(i => i.Id == id);
             return entity;
         }
+
     }
 }
