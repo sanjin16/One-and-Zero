@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace NormativeCalculator.DTOs.Request
 {
-    public class GetRecipesDto
+    public class RecipesDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public int CategoryId { get; set; }
         public int UserId { get; set; }
         public string Description { get; set; }
-        public decimal TotalCost { get; set; }
         public DateTime DateCreated { get; set; }
-        public IEnumerable<GetRecipeIngredientDto> RecipeIngredients { get; set; }
+        public IEnumerable<AddRecipeIngredientDto> RecipeIngredients { get; set; }
     }
 }

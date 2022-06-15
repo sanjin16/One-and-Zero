@@ -12,7 +12,7 @@ namespace NormativeCalculator.DTOs.Request
         public int RecipeId { get; set; }   
         public int IngredinetId { get; set; }   
         public MeasureType Measure { get; set; } 
-        public decimal Quantity { get; set; }
+        public int Quantity { get; set; }
         public decimal Cost { get; set; }
         public string Name { get; set; }
    

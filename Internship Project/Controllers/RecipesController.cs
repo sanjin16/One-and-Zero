@@ -45,7 +45,7 @@ namespace Internship_Project.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateRecipeAsync(int id, UpdateRecipeRequestDto request)
+        public async Task<IActionResult> UpdateRecipeAsync(int id, AddRecipeRequestDto request)
         {
            return Ok(await _recipeService.UpdateRecipeAsync(id, request));
         }

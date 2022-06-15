@@ -9,14 +9,16 @@ namespace Internship_Project.Mapping
     {
         public AutoMapperProfile() {
             CreateMap<Recipe, AddRecipeRequestDto>().ReverseMap();
-            CreateMap<Recipe, UpdateRecipeRequestDto>().ReverseMap();
             CreateMap<Category, GetCategoryDto>();
-            CreateMap<Recipe, RecipeDto>();
-            CreateMap<GetRecipesDto, RecipeDto>();
+            CreateMap<Recipe, RecipeDto>().ReverseMap();
+            CreateMap<Recipe, RecipesDto>().ReverseMap();
+            CreateMap<Recipe, GetRecipesDto>().ReverseMap();
+            CreateMap<GetRecipesDto, RecipeDto>().ReverseMap();
+          
             CreateMap<Category, AddCategoryRequestDto>().ReverseMap();
-
             CreateMap<AddIngredientDto, Ingredient>();
             CreateMap<Ingredient, GetIngredientDto>();
+            CreateMap<RecipeIngredients, AddRecipeIngredientDto>().ReverseMap();
         }
     }
 }
