@@ -38,10 +38,10 @@ namespace NormativeCalculator.Service.Service
                             TotalCost = _recipeIngredientPriceService.RecipePrice(s)
                         }).ToListAsync();
             list = list.OrderBy(i => i.TotalCost).Skip(request.Skip).Take(10).ToList();
-            
+
             var count = _context.Recipe.Count();
             var data = _mapper.Map<List<RecipeDto>>(list);
-      
+
 
             return new PaginationModel<List<RecipeDto>>(data, count);
         }
@@ -76,7 +76,7 @@ namespace NormativeCalculator.Service.Service
         {
             var entity = await _context.Recipe.FirstOrDefaultAsync(i => i.Id == Id);
             entity.IsDeleted = true;
-           
+
             await _context.SaveChangesAsync();
 
             return _mapper.Map<RecipeDto>(entity);
@@ -88,7 +88,7 @@ namespace NormativeCalculator.Service.Service
             entity.DateCreated = DateTime.Now;
             entity.IsDeleted = false;
 
-             _context.Update(entity);
+            _context.Update(entity);
             await _context.SaveChangesAsync();
 
             if (request.Ingredients != null)
@@ -120,7 +120,7 @@ namespace NormativeCalculator.Service.Service
                 Description = r.Description,
                 RecipeIngredients = r.RecipeIngredients.Select(i => new GetRecipeIngredientDto
                 {
-                    IngredinetId =i.IngredientId,
+                    IngredinetId = i.IngredientId,
                     Measure = i.MeasureType,
                     Name = i.Ingredient.Name,
                     Quantity = i.Quantity,
@@ -132,6 +132,5 @@ namespace NormativeCalculator.Service.Service
             }).FirstOrDefaultAsync(i => i.Id == id);
             return entity;
         }
-
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace NormativeCalculator.Database.EF
 {
-    public  class NormativeCalculatorDbContext : DbContext
+    public class NormativeCalculatorDbContext : DbContext
     {
         public NormativeCalculatorDbContext(DbContextOptions<NormativeCalculatorDbContext> options) : base(options)
         {
@@ -19,12 +19,13 @@ namespace NormativeCalculator.Database.EF
         public DbSet<Category> Category { get; set; }
         public DbSet<RecipeIngredients> RecipeIngredients { get; set; }
         public DbSet<User> Users { get; set; }
-    
-        protected override void OnModelCreating(ModelBuilder modelBuilder) {
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<RecipeIngredients>().HasKey(r => new { r.IngredientId, r.RecipeId });
             modelBuilder.DataSeed();
         }
-     
+
     }
 }

@@ -23,7 +23,7 @@ namespace Internship_Project.Controllers
         [HttpGet]
         public async Task<IActionResult> GetRecipesAsync([FromQuery] RecipeSearchRequestDto request)
         {
-            return Ok( await _recipeService.GetRecipeAsync(request));
+            return Ok(await _recipeService.GetRecipeAsync(request));
         }
 
         [HttpGet("{id}")]
@@ -35,7 +35,7 @@ namespace Internship_Project.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRecipeAsync(int id)
         {
-             return Ok(await _recipeService.DeleteRecipeAsync(id));
+            return Ok(await _recipeService.DeleteRecipeAsync(id));
         }
 
         [HttpPost]
@@ -47,7 +47,7 @@ namespace Internship_Project.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateRecipeAsync(int id, AddRecipeRequestDto request)
         {
-           return Ok(await _recipeService.UpdateRecipeAsync(id, request));
+            return Ok(await _recipeService.UpdateRecipeAsync(id, request));
         }
     }
 }

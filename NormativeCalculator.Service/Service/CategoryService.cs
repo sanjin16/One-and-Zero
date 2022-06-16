@@ -19,7 +19,7 @@ namespace NormativeCalculator.Service.Service
         private readonly IMapper _mapper;
         public CategoryService(NormativeCalculatorDbContext context, IMapper mapper)
         {
-            _context = context; 
+            _context = context;
             _mapper = mapper;
         }
         public async Task<GetCategoryDto> GetCategoryByIdAsync(int id)

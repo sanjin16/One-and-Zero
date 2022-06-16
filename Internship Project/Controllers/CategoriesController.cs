@@ -15,7 +15,7 @@ namespace Internship_Project.Controllers
     public class CategoriesController : ControllerBase
     {
         private readonly ICategoryService _recipeCategoryService;
-        public CategoriesController( ICategoryService recipeCategoryService)
+        public CategoriesController(ICategoryService recipeCategoryService)
         {
             _recipeCategoryService = recipeCategoryService;
         }
@@ -33,7 +33,7 @@ namespace Internship_Project.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> InsertCategory (AddCategoryRequestDto request)
+        public async Task<IActionResult> InsertCategory(AddCategoryRequestDto request)
         {
             return Ok(await _recipeCategoryService.AddCategoryAsync(request));
         }

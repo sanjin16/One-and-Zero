@@ -477,8 +477,8 @@ namespace NormativeCalculator.Database.DataSeed
   {
 
       RecipeId = 1,
-      IngredientId =3,
-      MeasureType = Common.Enum.MeasureType.kom ,
+      IngredientId = 3,
+      MeasureType = Common.Enum.MeasureType.kom,
       Quantity = 3,
 
   },

@@ -10,7 +10,7 @@ namespace NormativeCalculator.Common.Enum
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum MeasureType
     {
-        kom= 1,
+        kom = 1,
         kg = 2,
         gr = 3,
         l = 4,

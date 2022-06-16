@@ -63,6 +63,6 @@ namespace NormativeCalculator.Service.Service
                 return quantity / 1000;
 
             return quantity;
-         }
+        }
     }
 }

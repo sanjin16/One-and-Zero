@@ -7,14 +7,14 @@ namespace Internship_Project.Mapping
 {
     public class AutoMapperProfile : Profile
     {
-        public AutoMapperProfile() {
+        public AutoMapperProfile()
+        {
             CreateMap<Recipe, AddRecipeRequestDto>().ReverseMap();
             CreateMap<Category, GetCategoryDto>();
             CreateMap<Recipe, RecipeDto>().ReverseMap();
             CreateMap<Recipe, RecipesDto>().ReverseMap();
             CreateMap<Recipe, GetRecipesDto>().ReverseMap();
             CreateMap<GetRecipesDto, RecipeDto>().ReverseMap();
-          
             CreateMap<Category, AddCategoryRequestDto>().ReverseMap();
             CreateMap<AddIngredientDto, Ingredient>();
             CreateMap<Ingredient, GetIngredientDto>();
