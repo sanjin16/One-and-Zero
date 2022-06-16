@@ -10,7 +10,6 @@ namespace NormativeCalculator.DTOs.Request
     { 
         public int CategoryId { get; set; } 
         public string SearchText { get; set; }
-
-        public string Sort { get; set; }
+        public int Skip { get; set; }  
     }
 }

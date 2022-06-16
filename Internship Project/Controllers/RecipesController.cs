@@ -21,7 +21,7 @@ namespace Internship_Project.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetRecipesAsync([FromQuery]RecipeSearchRequestDto request)
+        public async Task<IActionResult> GetRecipesAsync([FromQuery] RecipeSearchRequestDto request)
         {
             return Ok( await _recipeService.GetRecipeAsync(request));
         }

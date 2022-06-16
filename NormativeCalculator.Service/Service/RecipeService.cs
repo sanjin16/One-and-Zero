@@ -37,27 +37,13 @@ namespace NormativeCalculator.Service.Service
                             Name = s.Name,
                             TotalCost = _recipeIngredientPriceService.RecipePrice(s)
                         }).ToListAsync();
-
+            list = list.OrderBy(i => i.TotalCost).Skip(request.Skip).Take(10).ToList();
+            
             var count = _context.Recipe.Count();
             var data = _mapper.Map<List<RecipeDto>>(list);
-            var sorted = data.OrderBy(q => q.TotalCost).ToList();
-            if (request.Sort!=null)
-            {
-                switch (request.Sort)
-                {
-                    case "asc":
-                        sorted = data.OrderBy(q => q.TotalCost).ToList();
-                        break;
-                    case "desc":
-                        sorted = data.OrderByDescending(q => q.TotalCost).ToList();
-                        break;
-                    default:
-                        sorted = data.OrderBy(q => q.TotalCost).ToList();
-                        break;
-                }
-            }
+      
 
-            return new PaginationModel<List<RecipeDto>>(sorted, count);
+            return new PaginationModel<List<RecipeDto>>(data, count);
         }
         public async Task<RecipesDto> InsertRecipeAsync(AddRecipeRequestDto request)
         {
