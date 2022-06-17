@@ -28,7 +28,7 @@ namespace NormativeCalculator.Service.IngredientService
         {
             var ServiceResponse = new ServiceResponse<List<GetIngredientDto>>();
             Ingredient ingredient = _mapper.Map<Ingredient>(newIngredient);
-
+            ingredient.IsDeleted = false;
             _context.Ingredients.Add(ingredient);
             await _context.SaveChangesAsync();
             ServiceResponse.Data = await _context.Ingredients
@@ -95,7 +95,7 @@ namespace NormativeCalculator.Service.IngredientService
                 else
                 {
                     ServiceResponse.Success = false;
-                    ServiceResponse.Message = "Character not found.";
+                    ServiceResponse.Message = "Ingredient not found.";
                 }
 
             return ServiceResponse;

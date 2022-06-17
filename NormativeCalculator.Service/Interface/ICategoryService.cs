@@ -1,4 +1,4 @@
-﻿using NormativeCalculator.Database.Helper;
+﻿using NormativeCalculator.DTOs.Models;
 using NormativeCalculator.DTOs.Request;
 using System.Collections.Generic;
 using System.Threading.Tasks;

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NormativeCalculator.Database.Helper;
+using NormativeCalculator.DTOs.Models;
 using NormativeCalculator.DTOs.Request;
 using NormativeCalculator.Service.Interface;
 using System.Collections.Generic;

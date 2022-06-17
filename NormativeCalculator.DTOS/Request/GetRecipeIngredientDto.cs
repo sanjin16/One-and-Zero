@@ -15,6 +15,5 @@ namespace NormativeCalculator.DTOs.Request
         public int Quantity { get; set; }
         public decimal Cost { get; set; }
         public string Name { get; set; }
-   
     }
 }

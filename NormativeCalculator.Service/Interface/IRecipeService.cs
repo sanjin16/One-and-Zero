@@ -1,5 +1,5 @@
 ﻿using NormativeCalculator.Database.Entities;
-using NormativeCalculator.Database.Helper;
+using NormativeCalculator.DTOs.Models;
 using NormativeCalculator.DTOs.Request;
 using System;
 using System.Collections.Generic;

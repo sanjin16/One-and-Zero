@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NormativeCalculator.Database.Helper
+namespace NormativeCalculator.DTOs.Models
 {
     public class PaginationModel<T> where T : class
     {

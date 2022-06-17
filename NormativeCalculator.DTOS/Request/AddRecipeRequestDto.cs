@@ -12,7 +12,7 @@ namespace NormativeCalculator.DTOs.Request
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public DateTime CreateDate { get; set; }
+        public DateTime DateCreated { get; set; }
         public int CategoryId { get; set; }
         public int UserId { get; set; }
         public IEnumerable<AddRecipeIngredientDto> Ingredients { get; set; }

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using NormativeCalculator.Database.EF;
 using NormativeCalculator.Database.Entities;
-using NormativeCalculator.Database.Helper;
+using NormativeCalculator.DTOs.Models;
 using NormativeCalculator.DTOs.Request;
 using NormativeCalculator.Service.Interface;
 using System;
@@ -41,7 +41,6 @@ namespace NormativeCalculator.Service.Service
 
             var count = _context.Recipe.Count();
             var data = _mapper.Map<List<RecipeDto>>(list);
-
 
             return new PaginationModel<List<RecipeDto>>(data, count);
         }

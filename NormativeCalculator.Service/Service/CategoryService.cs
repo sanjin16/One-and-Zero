@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using NormativeCalculator.Database.EF;
 using NormativeCalculator.Database.Entities;
-using NormativeCalculator.Database.Helper;
+using NormativeCalculator.DTOs.Models;
 using NormativeCalculator.DTOs.Request;
 using NormativeCalculator.Service.Interface;
 using System;

@@ -23,6 +23,7 @@ namespace NormativeCalculator.Database.EF
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<RecipeIngredients>().HasKey(r => new { r.IngredientId, r.RecipeId });
             modelBuilder.DataSeed();
         }

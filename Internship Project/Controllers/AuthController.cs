@@ -17,6 +17,7 @@ namespace Internship_Project.Controllers
         {
             _authRepo = authRepo;
         }
+
         [HttpPost("Register")]
         public async Task<ActionResult<ServiceResponse<int>>> Register(UserRegisterDto request)
         {
