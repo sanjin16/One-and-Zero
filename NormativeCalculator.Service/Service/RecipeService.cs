@@ -26,7 +26,7 @@ namespace NormativeCalculator.Service.Service
         }
         public async Task<PaginationModel<List<RecipeDto>>> GetRecipeAsync(RecipeSearchRequest request)
         {
-            var list = await _context.Recipe.Include(i => i.RecipeIngredients).ThenInclude(
+            var list = await _context.Recipe.Where(i=>i.IsDeleted== false).Include(i => i.RecipeIngredients).ThenInclude(
                 i => i.Ingredient).Where(i => i.CategoryId == request.CategoryId).Where(
                 r => string.IsNullOrWhiteSpace(request.SearchText) || r.Name.ToLower().StartsWith(
                     request.SearchText.ToLower().Trim()) || r.Description.ToLower().StartsWith(
@@ -71,14 +71,14 @@ namespace NormativeCalculator.Service.Service
 
             return _mapper.Map<RecipesDto>(entity);
         }
-        public async Task<RecipeDto> DeleteRecipeAsync(int Id)
+        public async Task<Recipe_Dto> DeleteRecipeAsync(int Id)
         {
             var entity = await _context.Recipe.FirstOrDefaultAsync(i => i.Id == Id);
             entity.IsDeleted = true;
 
             await _context.SaveChangesAsync();
 
-            return _mapper.Map<RecipeDto>(entity);
+            return _mapper.Map<Recipe_Dto>(entity);
         }
         public async Task<RecipesDto> UpdateRecipeAsync(int id, AddRecipeRequest request)
         {
@@ -107,7 +107,7 @@ namespace NormativeCalculator.Service.Service
 
         public async Task<GetRecipesDto> GetRecipeByIdAsync(int id)
         {
-            var entity = await _context.Recipe.Select(r =>
+            var entity = await _context.Recipe.Where(i => i.IsDeleted == false).Select(r =>
             new GetRecipesDto
             {
                 Id = r.Id,

@@ -62,7 +62,9 @@ namespace NormativeCalculator.Service.IngredientService
         public async Task<ServiceResponse<List<GetIngredientDto>>> GetAllIngredients()
         {
             var ServiceResponse = new ServiceResponse<List<GetIngredientDto>>();
-            var dbIngredients = await _context.Ingredients.ToListAsync();
+
+            var dbIngredients = await _context.Ingredients.Where(i=> i.IsDeleted==false).ToListAsync();
+
             ServiceResponse.Data = dbIngredients.Select(c => _mapper.Map<GetIngredientDto>(c)).ToList();
             return ServiceResponse;
         }

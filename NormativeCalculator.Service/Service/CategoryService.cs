@@ -24,13 +24,13 @@ namespace NormativeCalculator.Service.Service
         }
         public async Task<GetCategoryDto> GetCategoryByIdAsync(int id)
         {
-            var entity = await _context.Category.FindAsync(id);
+            var entity = await _context.Category.FirstOrDefaultAsync(x=>x.Id == id && x.IsDeleted == false);
 
             return _mapper.Map<GetCategoryDto>(entity);
         }
         public async Task<PaginationModel<List<GetCategoryDto>>> GetCategoryAsync(int skip)
         {
-            var list = await _context.Category.OrderByDescending(c => c.DateCreated).Skip(skip).Take(10).ToListAsync();
+            var list = await _context.Category.Where(i => i.IsDeleted == false).OrderByDescending(c => c.DateCreated).Skip(skip).Take(10).ToListAsync();
             var data = _mapper.Map<List<GetCategoryDto>>(list);
             var count = _context.Category.Count();
 

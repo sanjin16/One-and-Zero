@@ -14,6 +14,7 @@ namespace Internship_Project.Mapping
             CreateMap<Category, GetCategoryDto>();
             CreateMap<Recipe, RecipeDto>().ReverseMap();
             CreateMap<Recipe, RecipesDto>().ReverseMap();
+            CreateMap<Recipe, Recipe_Dto>().ReverseMap();
             CreateMap<Recipe, GetRecipesDto>().ReverseMap();
             CreateMap<GetRecipesDto, RecipeDto>().ReverseMap();
             CreateMap<Category, AddCategoryRequest>().ReverseMap();
