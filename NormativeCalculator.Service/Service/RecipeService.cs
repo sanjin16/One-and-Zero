@@ -82,13 +82,9 @@ namespace NormativeCalculator.Service.Service
         }
         public async Task<RecipesDto> UpdateRecipeAsync(int id, AddRecipeRequest request)
         {
+            var entity = await _context.Recipe.Include(i => i.RecipeIngredients).ThenInclude(i=>i.Ingredient).FirstOrDefaultAsync(i => i.Id == id);
 
-            var entity = _mapper.Map<Recipe>(request);
-            entity.DateCreated = DateTime.Now;
-            entity.IsDeleted = false;
-
-            _context.Update(entity);
-            await _context.SaveChangesAsync();
+            _mapper.Map(request, entity);
 
             if (request.Ingredients != null)
             {
