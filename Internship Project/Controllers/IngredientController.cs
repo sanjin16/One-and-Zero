@@ -34,7 +34,7 @@ namespace Internship_Project.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ServiceResponse<List<GetIngredientDto>>>> AddIngredient(AddIngredientDto newIngredient)
+        public async Task<ActionResult<ServiceResponse<List<GetIngredientDto>>>> AddIngredient(AddIngredient newIngredient)
         {
             return Ok(await _ingredientService.AddIngredient(newIngredient));
         }
@@ -51,7 +51,7 @@ namespace Internship_Project.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult<ServiceResponse<GetIngredientDto>>> UpdateIngredient(UpdateIngredientDto updatedIngredient)
+        public async Task<ActionResult<ServiceResponse<GetIngredientDto>>> UpdateIngredient(UpdateIngredient updatedIngredient)
         {
             var response = await _ingredientService.UpdateIngredient(updatedIngredient);
             if (response.Data == null)

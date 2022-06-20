@@ -1,10 +1,11 @@
-﻿using System;
+﻿using NormativeCalculator.DTOs.Request;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NormativeCalculator.DTOs.Request
+namespace NormativeCalculator.DTOs.Models
 {
     public class RecipesDto
     {
@@ -13,6 +14,6 @@ namespace NormativeCalculator.DTOs.Request
         public int CategoryId { get; set; }
         public int UserId { get; set; }
         public string Description { get; set; }
-        public IEnumerable<AddRecipeIngredientDto> RecipeIngredients { get; set; }
+        public IEnumerable<AddRecipeIngredient> RecipeIngredients { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace NormativeCalculator.DTOs.Request
+﻿namespace NormativeCalculator.DTOs.Models
 {
     public class RecipeDto
     {

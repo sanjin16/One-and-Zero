@@ -12,7 +12,6 @@ namespace NormativeCalculator.DTOs.Request
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal TotalCost { get; set; }
-        public string DateCreated { get; set; }
         public IEnumerable<GetRecipeIngredientDto> RecipeIngredients { get; set; }
     }
 }

@@ -21,7 +21,7 @@ namespace Internship_Project.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetRecipesAsync([FromQuery] RecipeSearchRequestDto request)
+        public async Task<IActionResult> GetRecipesAsync([FromQuery] RecipeSearchRequest request)
         {
             return Ok(await _recipeService.GetRecipeAsync(request));
         }
@@ -39,13 +39,13 @@ namespace Internship_Project.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> InsertRecipeAsync(AddRecipeRequestDto request)
+        public async Task<IActionResult> InsertRecipeAsync(AddRecipeRequest request)
         {
             return Ok(await _recipeService.InsertRecipeAsync(request));
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateRecipeAsync(int id, AddRecipeRequestDto request)
+        public async Task<IActionResult> UpdateRecipeAsync(int id, AddRecipeRequest request)
         {
             return Ok(await _recipeService.UpdateRecipeAsync(id, request));
         }

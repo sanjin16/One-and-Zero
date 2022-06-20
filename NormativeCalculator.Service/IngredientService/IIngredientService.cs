@@ -10,8 +10,8 @@ namespace NormativeCalculator.Service.IngredientService
     {
         Task<ServiceResponse<List<GetIngredientDto>>> GetAllIngredients();
         Task<ServiceResponse<GetIngredientDto>> GetOneIngredient(int id);
-        Task<ServiceResponse<List<GetIngredientDto>>> AddIngredient(AddIngredientDto newIngredient);
-        Task<ServiceResponse<GetIngredientDto>> UpdateIngredient(UpdateIngredientDto updatedIngredient);
+        Task<ServiceResponse<List<GetIngredientDto>>> AddIngredient(AddIngredient newIngredient);
+        Task<ServiceResponse<GetIngredientDto>> UpdateIngredient(UpdateIngredient updatedIngredient);
         Task<ServiceResponse<List<GetIngredientDto>>> DeleteIngredient(int id);
     }
 }

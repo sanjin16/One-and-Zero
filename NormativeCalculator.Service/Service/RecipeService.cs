@@ -24,7 +24,7 @@ namespace NormativeCalculator.Service.Service
             _mapper = mapper;
             _recipeIngredientPriceService = recipeIngredientPriceService;
         }
-        public async Task<PaginationModel<List<RecipeDto>>> GetRecipeAsync(RecipeSearchRequestDto request)
+        public async Task<PaginationModel<List<RecipeDto>>> GetRecipeAsync(RecipeSearchRequest request)
         {
             var list = await _context.Recipe.Include(i => i.RecipeIngredients).ThenInclude(
                 i => i.Ingredient).Where(i => i.CategoryId == request.CategoryId).Where(
@@ -44,7 +44,7 @@ namespace NormativeCalculator.Service.Service
 
             return new PaginationModel<List<RecipeDto>>(data, count);
         }
-        public async Task<RecipesDto> InsertRecipeAsync(AddRecipeRequestDto request)
+        public async Task<RecipesDto> InsertRecipeAsync(AddRecipeRequest request)
         {
             var entity = _mapper.Map<Recipe>(request);
             entity.DateCreated = DateTime.Now;
@@ -80,7 +80,7 @@ namespace NormativeCalculator.Service.Service
 
             return _mapper.Map<RecipeDto>(entity);
         }
-        public async Task<RecipesDto> UpdateRecipeAsync(int id, AddRecipeRequestDto request)
+        public async Task<RecipesDto> UpdateRecipeAsync(int id, AddRecipeRequest request)
         {
 
             var entity = _mapper.Map<Recipe>(request);

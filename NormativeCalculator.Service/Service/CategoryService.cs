@@ -37,7 +37,7 @@ namespace NormativeCalculator.Service.Service
             return new PaginationModel<List<GetCategoryDto>>(data, count);
         }
 
-        public async Task<GetCategoryDto> AddCategoryAsync(AddCategoryRequestDto request)
+        public async Task<GetCategoryDto> AddCategoryAsync(AddCategoryRequest request)
         {
             var entity = _mapper.Map<Category>(request);
             entity.DateCreated = DateTime.Now;
@@ -49,7 +49,7 @@ namespace NormativeCalculator.Service.Service
             return _mapper.Map<GetCategoryDto>(entity);
         }
 
-        public async Task<GetCategoryDto> UpdateCategoryAsync(int id, AddCategoryRequestDto request)
+        public async Task<GetCategoryDto> UpdateCategoryAsync(int id, AddCategoryRequest request)
         {
             var entity = await _context.Category.FindAsync(id);
             _context.Set<Category>().Update(entity);

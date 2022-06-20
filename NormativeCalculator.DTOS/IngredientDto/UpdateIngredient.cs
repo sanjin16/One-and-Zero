@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace NormativeCalculator.DTOs.IngredientDto
 {
-    public class UpdateIngredientDto
+    public class UpdateIngredient
     {
         public int Id { get; set; }
         public string Name { get; set; } = null;
         public decimal Price { get; set; } = 0;
         public int Quantity { get; set; } = 0;
-        public MeasureType measureType { get; set; } = MeasureType.kom;
+        public MeasureType MeasureType { get; set; } = MeasureType.kom;
     }
 }

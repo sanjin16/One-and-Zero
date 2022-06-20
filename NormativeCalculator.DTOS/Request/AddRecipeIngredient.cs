@@ -2,7 +2,7 @@
 
 namespace NormativeCalculator.DTOs.Request
 {
-    public class AddRecipeIngredientDto
+    public class AddRecipeIngredient
     {
         public int RecipeId { get; set; }
         public int IngredientId { get; set; }

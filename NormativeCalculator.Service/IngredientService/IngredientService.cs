@@ -24,7 +24,7 @@ namespace NormativeCalculator.Service.IngredientService
             _context = context;
         }
 
-        public async Task<ServiceResponse<List<GetIngredientDto>>> AddIngredient(AddIngredientDto newIngredient)
+        public async Task<ServiceResponse<List<GetIngredientDto>>> AddIngredient(AddIngredient newIngredient)
         {
             var ServiceResponse = new ServiceResponse<List<GetIngredientDto>>();
             Ingredient ingredient = _mapper.Map<Ingredient>(newIngredient);
@@ -74,7 +74,7 @@ namespace NormativeCalculator.Service.IngredientService
             return ServiceResponse;
         }
 
-        public async Task<ServiceResponse<GetIngredientDto>> UpdateIngredient(UpdateIngredientDto updatedIngredient)
+        public async Task<ServiceResponse<GetIngredientDto>> UpdateIngredient(UpdateIngredient updatedIngredient)
         {
             var ServiceResponse = new ServiceResponse<GetIngredientDto>();
 
@@ -86,7 +86,7 @@ namespace NormativeCalculator.Service.IngredientService
                     ingredient.Name = updatedIngredient.Name;
                     ingredient.Price = updatedIngredient.Price;
                     ingredient.Quantity = updatedIngredient.Quantity;
-                    ingredient.MeasureType = updatedIngredient.measureType;
+                    ingredient.MeasureType = updatedIngredient.MeasureType;
 
                     await _context.SaveChangesAsync();
 

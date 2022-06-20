@@ -33,13 +33,13 @@ namespace Internship_Project.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> InsertCategory(AddCategoryRequestDto request)
+        public async Task<IActionResult> InsertCategory(AddCategoryRequest request)
         {
             return Ok(await _recipeCategoryService.AddCategoryAsync(request));
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateCategory(int id, AddCategoryRequestDto request)
+        public async Task<IActionResult> UpdateCategory(int id, AddCategoryRequest request)
         {
             return Ok(await _recipeCategoryService.UpdateCategoryAsync(id, request));
         }

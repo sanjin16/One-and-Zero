@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NormativeCalculator.DTOs.IngredientDto
 {
-    public class AddIngredientDto
+    public class AddIngredient
     {
         public string Name { get; set; } 
         public decimal Price { get; set; }

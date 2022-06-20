@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NormativeCalculator.DTOs.Request
 {
-    public class AddCategoryRequestDto
+    public class AddCategoryRequest
     {
         public string Name { get; set; }
     }
